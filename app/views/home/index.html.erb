@@ -1,0 +1,60 @@
+<meta charset="utf-8">
+<title>Игра "Палочки"</title>
+<style>
+	*{
+		padding:0;
+		margin: 0;
+		font-family: tahoma;
+	}
+	body {
+		background:  -webkit-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+		background:  -moz-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+		background:  -o-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+		background:  -ms-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+		background:  radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+		width: 100%;
+	}
+	.all {
+		margin: 0 auto;
+		width: 197px;
+	}
+	.all p {
+		text-align: center;
+		color: #4f786f;
+		text-shadow: 1px 1px 1px white;
+		font-weight: bolder;
+		font-size: 13px;
+		padding-top: 10px;
+	}
+	#but {
+		display: block;
+		text-decoration: 0;
+		background: url(http://s020.radikal.ru/i707/1306/f0/ec93b1f276f3.png);
+		width: 197px;
+		height: 198px;
+		border: none;
+	}
+	#but:hover {
+		background: url(http://s08.radikal.ru/i181/1306/88/cbb2fbdc8c6e.png);	
+	}
+</style>
+<script>
+	var k=20;
+		if(k>1){
+			var choise= Math.random();
+			if (choise<=0.5) {
+				choise='Browser';
+			}
+			else {
+				choise='Server';
+			}
+			alert("Игру начинает " + choise);
+			if (choise=='Browser') {
+				window.location.assign("/home/welcome/?a=" + k + "&b=" + 0);
+			}
+			else {
+				window.location.assign("/home/redirector/?a=" + k + "&b=" + 0);
+			}
+		}
+</script>
+

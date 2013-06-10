@@ -1,0 +1,110 @@
+<meta charset="utf-8">
+<title>Палочки. Браузер против сервера</title>
+<style>
+	body {
+		background:  -webkit-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+		background:  -moz-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+		background:  -o-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+		background:  -ms-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+		background:  radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+		width: 100%;
+	}
+	p {
+		text-align: center;
+		color: #4f786f;
+		text-shadow: 1px 1px 1px white;
+		font-weight: bolder;
+		font-size: 13px;
+		padding-top: 10px;
+	}
+	.all {
+		width: 680px;
+		margin: 0 auto;
+	}
+	img {
+		margin-right: 12px;
+	}
+    .one {
+		text-align: center;
+		color: #73ce30;
+		text-shadow: 1px 1px 1px #61a52f;
+		font-weight: bolder;
+		font-size: 18px;
+		padding-top: 10px;
+		text-transform: uppercase;
+		padding-left: 10px;
+	}
+	.two {
+    	text-align: center;
+		color: #e82b21;
+		text-shadow: 1px 1px 1px #a02413;
+		font-weight: bolder;
+		font-size: 18px;
+		padding-top: 10px;
+		text-transform: uppercase;
+		padding-left: 10px;
+    }
+</style>
+<div class="all">
+<script>
+	var searchstr=window.location.search.toString();
+	var arr=new Array(4);
+	var str=searchstr;
+	var num=0;
+	for(var i=0;i<4;i++){
+		num=str.indexOf("=");
+		str=str.substr(num+1);
+		arr[i]=parseInt(str);
+	}	
+	count=arr[2];
+	if (arr[0]<=0) {
+		alert('Browser выиграл');
+		window.location = '/home/index/?win=Browser&c=' + count + '&id=' + arr[3];
+	}
+	else{
+		count++;
+		var a;
+		var key= Math.random();
+	    if (arr[0]==3) {
+			a=2;
+		} 
+		else if ((arr[0]==2)||(arr[0]==1)) {
+			a=1;
+		} 
+		else {
+			if (key<=0.33) {
+				a=1;
+			}
+			if ((key>0.33)&&(key<0.66)) {
+				a=2;
+			}
+			if (key>0.66) {
+				a=3;
+			}
+		}
+		arr[0]=arr[0]-a;
+		document.write('<p>Всего палочек: </p>');
+		for (var j=0; j<arr[0]; j++){
+			document.write('<img src="http://s001.radikal.ru/i193/1306/80/1fc34f22f324.png">');
+		}
+		for (var h=0; h<20-arr[0]; h++){
+			document.write('<img src="http://s42.radikal.ru/i095/1306/82/5aa1dab8fc6c.png">');
+		}	
+		document.write('<p class="two">SERVER:</p>');
+		for (var j=0; j<arr[1]; j++){
+			document.write('<img src="http://s001.radikal.ru/i193/1306/80/1fc34f22f324.png">');
+		}
+		document.write('<p class="one">BROWSER:</p>');
+		for (var j=0; j<a; j++){
+			document.write('<img src="http://s001.radikal.ru/i193/1306/80/1fc34f22f324.png">');
+		}
+		if (arr[0]<=0) {
+			alert('Server выиграл');
+			window.location = '/home/index/?win=Server&c='+ count + '&id=' + arr[3];
+		}
+		else {
+			window.location = "/home/redirector"+ "?a=" + arr[0] + "&b=" + a + "&c=" + count + "&id=" + arr[3];
+		}
+	}
+</script>
+</div>

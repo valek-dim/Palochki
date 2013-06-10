@@ -1,0 +1,70 @@
+		<meta charset="utf-8">
+		<title>Игра "Палочки"</title>
+		<style>
+			*{
+				padding:0;
+				margin: 0;
+				font-family: tahoma;
+			}
+			body {
+				background:  -webkit-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+				background:  -moz-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+				background:  -o-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+				background:  -ms-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+				background:  radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+				width: 100%;			}
+			.all {
+				margin: 0 auto;
+				width: 197px;
+				margin-top: 50px;
+			}
+			.logo {
+				background: url(http://s018.radikal.ru/i502/1306/55/ed7b78988c23.png) no-repeat top center;
+				margin: 0 auto;
+				width: 430px;
+				height: 185px;
+			}
+			.all p {
+				text-align: center;
+				color: #4f786f;
+				text-shadow: 1px 1px 1px white;
+				font-weight: bolder;
+				font-size: 13px;
+				padding-top: 10px;
+			}
+			.a {
+
+				margin-top: 50px;
+			}
+			.a a {
+				text-align: center;
+				color: #4f786f;
+				text-shadow: 1px 1px 1px white;
+				font-weight: bolder;
+				font-size: 14px;
+			}
+			a:hover {
+				background: none;
+				text-decoration: none;
+			}
+			#but {
+				display: block;
+				text-decoration: 0;
+				background: url(http://s020.radikal.ru/i707/1306/f0/ec93b1f276f3.png);
+				width: 197px;
+				height: 198px;
+				border: none;
+			}
+			#but:hover {
+				background: url(http://s08.radikal.ru/i181/1306/88/cbb2fbdc8c6e.png);
+				
+			}
+		</style>
+		<div class="logo"></div>
+		<div class="all">
+		<p>PLAY</p>
+			<form action="home/index">
+				<input id="but" type="submit" value="" onclick="start()">
+			</form>
+		<p class="a"><a  href="/games">ПОСМОТРЕТЬ ИСТОРИЮ ИГР</a></p>	
+		</div>

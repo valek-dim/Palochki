@@ -1,0 +1,141 @@
+<style>
+    table, th, td{
+        text-align: center;
+        border-collapse: collapse;
+        margin: 0 auto;
+        padding: 5px 25px;
+        font-family: Tahoma;
+    }
+    table {
+        width: 800px;
+    }
+    th {
+        text-align: center;
+        color: #4f786f;
+        text-shadow: 1px 1px 1px white;
+        font-weight: bolder;
+        font-size: 13px;
+        padding-top: 0px;
+        border-bottom: 3px solid #b8cbcd;
+        padding-bottom: 15px;
+    }
+    tr:nth-child(even){
+        background: #b8cbcd;
+    }
+    h1{
+        text-align: center;
+        color: #4f786f;
+        text-shadow: 1px 1px 1px white;
+        font-weight: bolder;
+        font-size: 19px;
+        padding-top: 10px;
+        padding-bottom: 12px;
+        background:  #b8cbcd;
+        border-bottom: 3px solid #8aa4a7;
+        margin-top: 20px;
+    }
+    body{  
+        background:  -webkit-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+        background:  -moz-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+        background:  -o-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+        background:  -ms-radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+        background:  radial-gradient(0% 50%, circle, #f3f2ec, #afc1c3);
+        width: 100%;
+    }
+    div{
+        width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+    a{
+        text-decoration: none;
+        color: #363636;
+        font-family: Tahoma;
+
+
+      }
+    .oneq {
+        text-align: center;
+        color: #73ce30;
+        font-size: 15px;
+        padding-top: 10px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .twoq {
+        text-align: center;
+        color: #e82b21;
+        font-size: 15px;
+        padding-top: 10px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .threeq {
+        color: #e57c00;
+        font-weight: bold;
+        font-size: 15px;
+    } 
+    ul {
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+    ul li {
+        display: inline-block;
+        margin: 0;
+        padding: 0 20px;
+    }
+    li:nth-child(1) a {
+        background: url(http://s61.radikal.ru/i173/1306/b1/9fee4e9f9bf0.png);
+        display: block;
+        width: 168px;
+        height: 70px;
+        text-decoration: none;
+    }
+    li:nth-child(2) a {
+        background: url(http://s51.radikal.ru/i131/1306/8c/2c90bfe606c4.png);
+        display: block;  
+        width: 168px;
+        height: 70px;
+        text-decoration: none;
+    }
+    li:nth-child(3) a {
+        background: url(http://s019.radikal.ru/i631/1306/be/c77d2c1b9837.png);
+        display: block;
+        width: 168px;
+        height: 70px;
+        text-decoration: none;
+    }
+</style>
+<div>
+    <ul>
+        <li><a href="/home/indexone"></a></li>
+        <li><a href="/home/index"></a></li>
+    </ul>
+    <h1>ИСТОРИЯ ИГР</h1>
+    <table>
+        <tr>
+            <th>Дата и время игры</th>
+            <th>Победитель</th>
+            <th>Количество ходов</th>
+            <th></th>
+        </tr>
+
+      <% @games.each do |game| %>
+        <tr>   
+            <td><%= game.created_at %></td>
+            <td><%if game.winner=="Browser"%>
+                    <span class="oneq">BROWSER</span>
+                <% else %>
+                    <span class="twoq">SERVER</span>
+                <% end %>
+            </td>
+            <td><span class="threeq"><%= game.steps %></span></td>
+
+            <td><%= link_to 'Просмотр', game %></td>
+        </tr>
+      <% end %>
+    </table>
+    <br />
+    <a href="/home/index">Начать новую игру</a>
+</div>
